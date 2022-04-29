@@ -8,7 +8,7 @@ A lista é composta por 5 vagas, cada vaga pode ser vinculada a 3 candidatos.
 
 Ao exceder a quantidade de candidato por vaga, o programa informa o usuário.
 
-##Validação de dados.
+Validação de dados.
 
 Foi feito validação de dados. 
 
@@ -16,7 +16,7 @@ Testes e validadççoes de CPFs.
 
 Testes e Validação de variaveis para calcular idade e informações de candidatos.
 
-##Tratamento de erros.
+Tratamento de erros.
 
 Executado tratamento de erros para evitar que o programa encerre.
 
