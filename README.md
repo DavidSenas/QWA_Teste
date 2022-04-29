@@ -1,6 +1,6 @@
 # Programa criado em Python para um teste de lógica.
 
-##Criada aplicação orientada a objetos Para formar cadastro de pessoas.
+Criada aplicação orientada a objetos Para formar cadastro de pessoas.
 
 ## Criação de uma lista de cadastrados, alimentada com os objetos Pessoas.
 
