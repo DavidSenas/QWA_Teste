@@ -63,7 +63,7 @@ while True:
             Lista_CPF = Cadastrando_Candidato
             Linha_Divisória()
             print()
-            print("Verifique  os dados do candidato cadastrado! ")
+            print("Confere os dados do candidato cadastrado! ")
             print()
 
             for candidato in Cadastrando_Candidato:
@@ -115,8 +115,9 @@ while True:
                 Lista_CPF.clear()
                 print("Lista de Candidatos foi deletada! ")
 
-    except:
+    except Exception as erro:
         print(f"{FonteVermelha()}Reinicie o cadastro !{FonteBranca()}")
+        print(f"tipo erro{erro}")
         Linha_Divisória()
         Menu_de_Opções()
 

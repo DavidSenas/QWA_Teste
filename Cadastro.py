@@ -7,6 +7,7 @@ class Cadastrar_Candidato:
         self.vaga = vaga
         mes_atual = date.today().month
         ano_atual = date.today().year
+        self.capacidade_civil = " "
 
         try:
             while True:
@@ -32,8 +33,8 @@ class Cadastrar_Candidato:
                             break
 
                 while True:
-                    mes_de_nascimento = int(input("Digite o mês de nascimento do candidato com 2 digitos: "))
-
+                    mes_de_nascimento = str(input("Digite o mês de nascimento do candidato com 2 digitos: "))
+                    mes_de_nascimento = int(mes_de_nascimento)
                     if mes_de_nascimento <= 0 or mes_de_nascimento > 12:
                         print(f"{FonteVermelha()}Verifique o Mês de nascimento, ele deve ser composto por 2 digitos!{FonteBranca()}")
 
@@ -41,25 +42,33 @@ class Cadastrar_Candidato:
                         break
 
                 while True:
-                    ano_de_nascimento = int(input("Digite o Ano de nascimento do candidato com 4 Digitos: "))
+                    ano_de_nascimento = str(input("Digite o Ano de nascimento do candidato com 4 Digitos: "))
 
-                    if ano_de_nascimento < 1000 or ano_de_nascimento > ano_atual:
+                    if not ano_de_nascimento.isnumeric():
+                        print(f"{FonteVermelha()}Digite apenas números{FonteBranca()}")
+
+                    elif len(ano_de_nascimento) < 4:
                         print(f"{FonteVermelha()}O ano deve ser composto por 4 Digitos: {FonteBranca()}")
 
                     else:
+                        ano_de_nascimento = int(ano_de_nascimento)
                         self.idade = (ano_atual - ano_de_nascimento)
                         break
 
-                if self.idade >= 18:
+                if self.idade < 18:
+                    self.capacidade_civil = f"O danditado {self.nome} é menor de idade!"
+
+                elif self.idade >= 18:
                     self.capacidade_civil = "maior de idade"
+
 
                 else:
                     if mes_de_nascimento > mes_atual and self.idade == 18:
                         self.capacidade_civil = f" O canditado {self.nome} vai completar {self.idade}"
                 break
 
-        except:
-            print(f"{FonteVermelha()}Houve um erro inesperado, faça o cadastro novamente!{FonteBranca()} ")
+        except Exception as erro:
+            print(f"{FonteVermelha()}Houve um erro {erro}inesperado, faça o cadastro novamente!{FonteBranca()} ")
 
     def __repr__(self):
         return f"Vaga: {self.vaga} Nome:{self.nome} Sobrenome: {self.sobrenome}  CPF: {self.CPF} Idade: {self.idade} Observação: {self.capacidade_civil} "
